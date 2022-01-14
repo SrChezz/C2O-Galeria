@@ -224,7 +224,7 @@ function createCarousel (div, images) {
 }
 
 
-function reloadTheater (carousel, metadata, ratio) {
+function reloadTheater (carousel, metadata, ratio, n) {
 
     const theater = document.getElementById('theater');
     const carouselContainer = theater.querySelector('.image-theater-inner')
@@ -250,37 +250,12 @@ function reloadTheater (carousel, metadata, ratio) {
     let leftArrow = carouselContainer.querySelector(".left")
     let rightArrow = carouselContainer.querySelector(".right")
 
-    rightArrow.addEventListener('click', () => {
-        if (number < inside -1) {
-
-        newNumber = amount - 100;
-        carousel.style.transform = `translateX(${amount - 100}%)`;
-        amount = newNumber;
-
-        dots.children[number].classList.remove("active")
-        number++;
-        dots.children[number].classList.add("active")
-
-        }
-    })
-
-    leftArrow.addEventListener('click', () => {
-        if (number > 0) {
-
-        newNumber = amount + 100;
-        carousel.style.transform = `translateX(${amount + 100}%)`;
-        amount = newNumber;
-
-        dots.children[number].classList.remove("active")
-        number--;
-        dots.children[number].classList.add("active")
-
-        }
-    })
-
-    for (let i = 0; i < inside; i++) {
+    for (let i = 0; i < n; i++) {
         let dot = document.createElement('div');
         dot.classList.add("dot")
+        if (i == 0) {
+            dot.classList.add("active")
+        }
         dots.appendChild(dot);
     }
 
@@ -294,6 +269,70 @@ function reloadTheater (carousel, metadata, ratio) {
             theater.classList.remove("theater-active");
         }       
     })
+
+    rightArrow.addEventListener('click', function() { swipeMovement("right"); }, false)
+    leftArrow.addEventListener('click', function() { swipeMovement("left"); } , false)
+
+    function swipeMovement(direction) {
+
+        dots.children[number].classList.remove("active")
+        
+        if (direction == "right") {
+            number = (number + 1) % n;
+        } else if (direction == "left") {
+            number = (number - 1);
+            if (number < 0) number = n - 1;
+        }      
+
+        carousel.style.transform = `translateX(${number * -100}%)`;
+
+        
+        dots.children[number].classList.add("active")
+    }
+
+    carouselContainer.addEventListener('touchstart', handleTouchStart, false);        
+    carouselContainer.addEventListener('touchmove', handleTouchMove, false);
+
+    var xDown = null;  
+    var yDown = null;                                                           
+
+    function getTouches(evt) {
+    return evt.touches ||             // browser API
+            evt.originalEvent.touches; // jQuery
+    }                                                     
+
+    function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];                                      
+        xDown = firstTouch.clientX;                                      
+        yDown = firstTouch.clientY;                                      
+    };                                                
+
+    function handleTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;    
+        var yUp = evt.touches[0].clientY;                                
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) && Math.abs( xDiff ) > 10) {
+            if ( xDiff > 0 ) {
+
+                swipeMovement("right")
+                    
+            } else {
+
+                swipeMovement("left")
+
+            }
+        }
+        /* reset values */
+        xDown = null;  
+        yDown = null;                                            
+    };
 }
 
 function addSliding (div, carousel, left, right, dots, n) {
@@ -327,25 +366,13 @@ function addSliding (div, carousel, left, right, dots, n) {
                 newCarousel.appendChild(newImage)
             }
 
-            reloadTheater(newCarousel, imageMetadata, imageRatio)
+            reloadTheater(newCarousel, imageMetadata, imageRatio, n)
             theater.classList.add('theater-active')
         }
     })
 
-    /* right.addEventListener('click', () => {
-        
-        if (number < n -1) {
-        newNumber = amount - 100;
-        carousel.style.transform = `translateX(${amount - 100}%)`;
-        amount = newNumber;
-
-        dots.children[number].classList.remove("active")
-        number++;
-        dots.children[number].classList.add("active")
-        }
-    }) */
-
     right.addEventListener('click', function() { swipeMovement("right"); }, false)
+    left.addEventListener('click', function() { swipeMovement("left"); } , false)
 
     function swipeMovement(direction) {
 
@@ -364,12 +391,13 @@ function addSliding (div, carousel, left, right, dots, n) {
         dots.children[number].classList.add("active")
     }
 
-    left.addEventListener('click', function() { swipeMovement("left"); } , false)
+    
 
     div.addEventListener('touchstart', handleTouchStart, false);        
     div.addEventListener('touchmove', handleTouchMove, false);
 
-    var xDown = null;                                                        
+    var xDown = null;  
+    var yDown = null;                                                            
 
     function getTouches(evt) {
     return evt.touches ||             // browser API
