@@ -4,35 +4,43 @@ const images = document.querySelectorAll('.image-container');
 const categoryButtons = document.querySelectorAll('.category-button a')
 
 var landscapes = [{
-    images: ["images/image-1.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Landscape/Paisajes-1-1.jpg", "images/Landscape/Paisajes-1-2.jpg", "images/Landscape/Paisajes-1-3.jpg"],
     ratio: "image-tall",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-1.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Landscape/Paisajes-2-1.jpg", "images/Landscape/Paisajes-2-2.jpg", "images/Landscape/Paisajes-2-3.jpg", "images/Landscape/Paisajes-2-4.jpg"],
     ratio: "image",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-1.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Landscape/Paisajes-3-1.jpg", "images/Landscape/Paisajes-3-2.jpg", "images/Landscape/Paisajes-3-3.jpg"],
     ratio: "image",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-1.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Landscape/Paisajes-4-1.jpg", "images/Landscape/Paisajes-4-2.jpg", "images/Landscape/Paisajes-4-3.jpg"],
+    ratio: "image-tall",
+    metadata: "Ayacucho - Huamanga"
+}, {
+    images: ["images/Landscape/Paisajes-5-1.jpg", "images/Landscape/Paisajes-5-2.jpg", "images/Landscape/Paisajes-5-3.jpg", "images/Landscape/Paisajes-5-4.jpg"],
+    ratio: "image",
+    metadata: "Ayacucho - Huamanga"
+}, {
+    images: ["images/Landscape/Paisajes-6-1.jpg", "images/Landscape/Paisajes-6-2.jpg", "images/Landscape/Paisajes-6-3.jpg", "images/Landscape/Paisajes-6-4.jpg"],
+    ratio: "image",
+    metadata: "Ayacucho - Huamanga"
+}, {
+    images: ["images/Landscape/Paisajes-7-1.jpg", "images/Landscape/Paisajes-7-2.jpg", "images/Landscape/Paisajes-7-3.jpg", "images/Landscape/Paisajes-7-4.jpg"],
     ratio: "image-wide-tall",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-1.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Landscape/Paisajes-8-1.jpg", "images/Landscape/Paisajes-8-2.jpg", "images/Landscape/Paisajes-8-3.jpg"],
     ratio: "image",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-1.jpg", "images/image-2.jpg", "images/image-3.jpg"],
-    ratio: "image",
+    images: ["images/Landscape/Paisajes-9-1.jpg", "images/Landscape/Paisajes-9-2.jpg"],
+    ratio: "image-wide",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-1.jpg", "images/image-2.jpg", "images/image-3.jpg"],
-    ratio: "image",
-    metadata: "Ayacucho - Huamanga"
-}, {
-    images: ["images/image-1.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Landscape/Paisajes-10-1.jpg", "images/Landscape/Paisajes-10-2.jpg", "images/Landscape/Paisajes-10-3.jpg", "images/Landscape/Paisajes-10-4.jpg"],
     ratio: "image-wide",
     metadata: "Ayacucho - Huamanga"
 }]
