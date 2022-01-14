@@ -303,6 +303,15 @@ function addSliding (div, carousel, left, right, dots, n) {
     
     let imagesInside = carousel.childNodes
 
+    for (let i = 0; i < n; i++) {
+        let dot = document.createElement('div');
+        dot.classList.add("dot")
+        if (i == 0) {
+            dot.classList.add("active")
+        }
+        dots.appendChild(dot);
+    }
+
     div.addEventListener('click', () => {
         if( event.target.classList =="image"){
 
@@ -323,7 +332,7 @@ function addSliding (div, carousel, left, right, dots, n) {
         }
     })
 
-    right.addEventListener('click', () => {
+    /* right.addEventListener('click', () => {
         
         if (number < n -1) {
         newNumber = amount - 100;
@@ -334,98 +343,71 @@ function addSliding (div, carousel, left, right, dots, n) {
         number++;
         dots.children[number].classList.add("active")
         }
-    })
+    }) */
 
-    left.addEventListener('click', () => {
-        
-        if (number > 0) {
-        newNumber = amount + 100;
-        carousel.style.transform = `translateX(${amount + 100}%)`;
-        amount = newNumber;
+    right.addEventListener('click', function() { swipeMovement("right"); }, false)
+
+    function swipeMovement(direction) {
 
         dots.children[number].classList.remove("active")
-        number--;
-        dots.children[number].classList.add("active")
-        }
-    })
+        
+        if (direction == "right") {
+            number = (number + 1) % n;
+        } else if (direction == "left") {
+            number = (number - 1);
+            if (number < 0) number = n - 1;
+        }      
 
-    for (let i = 0; i < n; i++) {
-        let dot = document.createElement('div');
-        dot.classList.add("dot")
-        if (i == 0) {
-            dot.classList.add("active")
-        }
-        dots.appendChild(dot);
+        carousel.style.transform = `translateX(${number * -100}%)`;
+
+        
+        dots.children[number].classList.add("active")
     }
 
+    left.addEventListener('click', function() { swipeMovement("left"); } , false)
+
+    div.addEventListener('touchstart', handleTouchStart, false);        
+    div.addEventListener('touchmove', handleTouchMove, false);
+
+    var xDown = null;                                                        
+
+    function getTouches(evt) {
+    return evt.touches ||             // browser API
+            evt.originalEvent.touches; // jQuery
+    }                                                     
+
+    function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];                                      
+        xDown = firstTouch.clientX;                                      
+        yDown = firstTouch.clientY;                                      
+    };                                                
+
+    function handleTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;    
+        var yUp = evt.touches[0].clientY;                                
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) && Math.abs( xDiff ) > 10) {
+            if ( xDiff > 0 ) {
+
+                swipeMovement("right")
+                    
+            } else {
+
+                swipeMovement("left")
+
+            }
+        }
+        /* reset values */
+        xDown = null;  
+        yDown = null;                                            
+    };
 }
 
-// Old system that is not dynamic
 
-/* images.forEach(image => {
-    
-    let amount = 0;
-    let number = 0;
-    let carousel = image.querySelector(".carousel")
-    let imagesInside = image.querySelectorAll(".image");
-    let inside = parseInt(image.querySelectorAll(".image").length)
-    let leftArrow = image.querySelector(".left")
-    let rightArrow = image.querySelector(".right")
-    let dots = image.querySelector(".dots")
-
-    image.addEventListener('click', () => {
-        if( event.target.classList =="image"){
-
-            let imageMetadata = image.getAttribute("data-metadata");
-            let imageRatio = image.getAttribute("data-ratio");
-            let newCarousel = document.createElement("div");
-            newCarousel.classList.add('carousel');
-
-            imagesInside.forEach(imageInside => {
-                let newImage = document.createElement('div');
-                newImage.classList.add(imageInside.getAttribute('class'))
-                newImage.setAttribute("style", imageInside.getAttribute('style'))
-                newCarousel.appendChild(newImage)
-            });
-
-            reloadTheater(newCarousel, imageMetadata, imageRatio)
-            theater.classList.add('theater-active')
-        }
-    })
-
-    rightArrow.addEventListener('click', () => {
-        
-        if (number < inside -1) {
-        newNumber = amount - 100;
-        carousel.style.transform = `translateX(${amount - 100}%)`;
-        amount = newNumber;
-
-        dots.children[number].classList.remove("active")
-        number++;
-        dots.children[number].classList.add("active")
-        }
-    })
-
-    leftArrow.addEventListener('click', () => {
-        
-        if (number > 0) {
-        newNumber = amount + 100;
-        carousel.style.transform = `translateX(${amount + 100}%)`;
-        amount = newNumber;
-
-        dots.children[number].classList.remove("active")
-        number--;
-        dots.children[number].classList.add("active")
-        }
-    })
-
-    for (let i = 0; i < inside; i++) {
-        let dot = document.createElement('div');
-        dot.classList.add("dot")
-        if (i == 0) {
-            dot.classList.add("active")
-        }
-        dots.appendChild(dot);
-    }
-
-}); */
