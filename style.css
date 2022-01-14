@@ -365,7 +365,8 @@ footer .social-media > a:hover {
     }
 
     .gallery-grid {
-        grid-gap: 10px
+        grid-gap: 10px;
+        margin-bottom: 80px;
     }
 
     .gallery-grid > div {
@@ -373,8 +374,13 @@ footer .social-media > a:hover {
     }
 
     .gallery-grid .image-tall {
-        grid-row: span 2 / auto;
-        aspect-ratio: 1/2 !important;
+        /* grid-row: span 1.5 / auto; */
+        aspect-ratio: 2/3 !important;
+    }
+
+    .gallery-grid .image-wide {
+        /* grid-row: span 1.5 / auto; */
+        aspect-ratio: 3/2 !important;
     }
 
     footer {
