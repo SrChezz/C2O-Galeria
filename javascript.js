@@ -46,36 +46,16 @@ var landscapes = [{
 }]
 
 var portraits = [{
-    images: ["images/image-2.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Portraits/Retrato-1-1.jpg", "images/Portraits/Retrato-1-2.jpg"],
     ratio: "image-tall",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-2.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Portraits/Retrato-2-1.jpg"],
     ratio: "image",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-2.jpg", "images/image-2.jpg", "images/image-3.jpg"],
-    ratio: "image",
-    metadata: "Ayacucho - Huamanga"
-}, {
-    images: ["images/image-2.jpg", "images/image-2.jpg", "images/image-3.jpg"],
-    ratio: "image-wide-tall",
-    metadata: "Ayacucho - Huamanga"
-}, {
-    images: ["images/image-2.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Portraits/Retrato-3-1.jpg", "images/Portraits/Retrato-3-2.jpg", "images/Portraits/Retrato-3-3.jpg", "images/Portraits/Retrato-3-4.jpg", "images/Portraits/Retrato-3-5.jpg", "images/Portraits/Retrato-3-6.jpg"],
     ratio: "image-tall",
-    metadata: "Ayacucho - Huamanga"
-}, {
-    images: ["images/image-2.jpg", "images/image-2.jpg", "images/image-3.jpg"],
-    ratio: "image",
-    metadata: "Ayacucho - Huamanga"
-}, {
-    images: ["images/image-2.jpg", "images/image-2.jpg", "images/image-3.jpg"],
-    ratio: "image",
-    metadata: "Ayacucho - Huamanga"
-}, {
-    images: ["images/image-2.jpg", "images/image-2.jpg", "images/image-3.jpg"],
-    ratio: "image-wide",
     metadata: "Ayacucho - Huamanga"
 }]
 
@@ -126,36 +106,32 @@ var events = [{
 }]
 
 var products = [{
-    images: ["images/image-4.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Products/Producto-1-1.jpg", "images/Products/Producto-1-2.jpg", "images/Products/Producto-1-3.jpg"],
     ratio: "image-tall",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-4.jpg", "images/image-2.jpg", "images/image-3.jpg"],
-    ratio: "image",
+    images: ["images/Products/Producto-2-1.jpg", "images/Products/Producto-2-2.jpg"],
+    ratio: "image-wide",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-4.jpg", "images/image-2.jpg", "images/image-3.jpg"],
-    ratio: "image",
-    metadata: "Ayacucho - Huamanga"
-}, {
-    images: ["images/image-4.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Products/Producto-3-1.jpg", "images/Products/Producto-3-2.jpg", "images/Products/Producto-3-3.jpg"],
     ratio: "image-wide-tall",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-4.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Products/Producto-4-1.jpg", "images/Products/Producto-4-2.jpg", "images/Products/Producto-4-3.jpg"],
     ratio: "image",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-4.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Products/Producto-5-1.jpg", "images/Products/Producto-5-2.jpg", "images/Products/Producto-5-3.jpg", "images/Products/Producto-5-4.jpg"],
     ratio: "image",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-4.jpg", "images/image-2.jpg", "images/image-3.jpg"],
+    images: ["images/Products/Producto-6-1.jpg", "images/Products/Producto-6-2.jpg"],
     ratio: "image",
     metadata: "Ayacucho - Huamanga"
 }, {
-    images: ["images/image-4.jpg", "images/image-2.jpg", "images/image-3.jpg"],
-    ratio: "image-wide",
+    images: ["images/Products/Producto-7-1.jpg", "images/Products/Producto-7-2.jpg", "images/Products/Producto-7-3.jpg"],
+    ratio: "image",
     metadata: "Ayacucho - Huamanga"
 }]
 
