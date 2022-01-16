@@ -46,7 +46,7 @@ var landscapes = [{
 }]
 
 var portraits = [{
-    images: ["images/Portraits/Retrato-1-1.jpg", "images/Portraits/Retrato-1-2.jpg"],
+    images: ["images/Portraits/Retrato-1-1.jpg"],
     ratio: "image-tall",
     metadata: "Ayacucho - Huamanga"
 }, {
